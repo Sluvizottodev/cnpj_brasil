@@ -12,13 +12,21 @@ class _BuscarEmpresaState extends State<BuscarEmpresa> {
   final TextEditingController _cnpjController = TextEditingController();
   final BuscarEmpresaViewModel _viewModel = BuscarEmpresaViewModel();
   Empresa? empresaDados;
+  String? _errorMessage; // Variável para armazenar a mensagem de erro
 
   Future<void> _buscarDadosEmpresa() async {
     final cnpj = _cnpjController.text;
     final dados = await _viewModel.buscarDadosEmpresa(cnpj);
 
     setState(() {
-      empresaDados = dados;
+      if (dados == null) {
+        // Se os dados forem nulos, define a mensagem de erro
+        _errorMessage = 'CNPJ não encontrado. Tente novamente.';
+      } else {
+        // Se os dados forem encontrados, limpa a mensagem de erro
+        _errorMessage = null;
+        empresaDados = dados;
+      }
     });
   }
 
@@ -28,7 +36,7 @@ class _BuscarEmpresaState extends State<BuscarEmpresa> {
       appBar: AppBar(
         title: Text('Buscar Empresa:'),
         backgroundColor: Colors.black, // Cor escura para a AppBar
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.blue,
       ),
       body: SingleChildScrollView( // Permite rolagem
         child: Padding(
@@ -36,6 +44,12 @@ class _BuscarEmpresaState extends State<BuscarEmpresa> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch, // Para que os widgets ocupem a largura total
             children: [
+              // Linha azul abaixo do título
+              Container(
+                height: 0.5, // Altura da linha
+                color: Colors.blue, // Cor da linha
+                margin: EdgeInsets.only(bottom: 16.0), // Espaço abaixo da linha
+              ),
               TextField(
                 controller: _cnpjController,
                 decoration: InputDecoration(
@@ -59,9 +73,17 @@ class _BuscarEmpresaState extends State<BuscarEmpresa> {
                 child: Text('Buscar'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent, // Cor do botão
+                  foregroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(vertical: 12.0), // Aumentar o espaço vertical do botão
                 ),
               ),
+              SizedBox(height: 16.0),
+              // Exibe a mensagem de erro, se existir
+              if (_errorMessage != null)
+                Text(
+                  _errorMessage!,
+                  style: TextStyle(color: Colors.red), // Cor da mensagem de erro
+                ),
               SizedBox(height: 16.0),
               if (empresaDados != null) EmpresaInfoCard(empresa: empresaDados!),
             ],
