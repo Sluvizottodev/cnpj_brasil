@@ -1,6 +1,6 @@
-# CNPJ App
+# CNPJ Brasil
 
-![CNPJ App Banner](https://your-banner-image-url.com)
+![CNPJ Brasil](https://your-banner-image-url.com)
 
 ## Descrição
 
