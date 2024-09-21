@@ -13,18 +13,20 @@ class EmpresaInfoCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      color: Colors.grey[900], // Fundo escuro do card
+      color: Colors.grey[900],
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView( // Adicionando scroll
+        child: SingleChildScrollView( // Permitir rolagem do conteúdo
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Informações da Empresa',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+              Text(
+                'Informações da Empresa',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
+              ),
               SizedBox(height: 12.0),
               _buildInfoRow('CNPJ:', empresa.cnpj, Icons.business),
-              Divider(color: Colors.grey), // Divisor cinza
+              Divider(color: Colors.grey),
               _buildInfoRow('Razão Social:', empresa.razaoSocial, Icons.apartment),
               Divider(color: Colors.grey),
               _buildInfoRow('Nome Fantasia:', empresa.nomeFantasia, Icons.store),
@@ -40,8 +42,10 @@ class EmpresaInfoCard extends StatelessWidget {
               _buildInfoRow('CNAE Principal:', empresa.cnaePrincipal, Icons.code),
               SizedBox(height: 12.0),
               if (empresa.socios.isNotEmpty) ...[
-                Text('Sócios:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                Text(
+                  'Sócios:',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                ),
                 SizedBox(height: 8.0),
                 ...empresa.socios.map<Widget>((socio) {
                   return Column(
@@ -64,14 +68,14 @@ class EmpresaInfoCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(icon, color: Colors.blueAccent, size: 24), // Ícone em azul claro
+          Icon(icon, color: Colors.blueAccent, size: 24),
           SizedBox(width: 12.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(label, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)), // Rótulo em branco
-                Text(value, textAlign: TextAlign.start, style: TextStyle(color: Colors.grey[400])), // Valor em cinza claro
+                Text(label, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+                Text(value, textAlign: TextAlign.start, style: TextStyle(color: Colors.grey[400])),
               ],
             ),
           ),
