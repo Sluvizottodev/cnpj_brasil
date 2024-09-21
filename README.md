@@ -1,16 +1,26 @@
-# cnpjbrasil
+# CNPJ App
 
-Busca de CNPJs ativos em tempo real
+![CNPJ App Banner](https://your-banner-image-url.com)
 
-## Getting Started
+## Descrição
 
-This project is a starting point for a Flutter application.
+CNPJ App é uma aplicação desenvolvida em Flutter que permite a consulta de informações de empresas brasileiras utilizando seu Cadastro Nacional da Pessoa Jurídica (CNPJ). Este projeto foi criado para demonstrar meus conhecimentos como desenvolvedora, integrando a API Brasil API para fornecer dados precisos e atualizados sobre as empresas.
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Consulta de CNPJ**: Permite aos usuários inserir um CNPJ e obter informações detalhadas sobre a empresa correspondente.
+- **Interface Intuitiva**: A aplicação possui uma interface simples e amigável, facilitando a navegação e a usabilidade.
+- **Informações em Tempo Real**: Utiliza a API Brasil API para garantir que os dados exibidos sejam sempre os mais recentes.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tecnologias Utilizadas
+
+- **Flutter**: Framework utilizado para o desenvolvimento da interface do aplicativo.
+- **Dart**: Linguagem de programação utilizada para construir a lógica do aplicativo.
+- **Brasil API**: API que fornece dados de CNPJ e outras informações relevantes.
+
+## Como Usar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Sluvizottodev/cnpj_brasil.git
+  
